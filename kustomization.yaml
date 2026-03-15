@@ -1,0 +1,18 @@
+# esse arquivo ele faz a gestao de todos os manifestos
+# kustomize build
+# kustomize edit set image
+# kubectl -k apply
+resources:
+  - backend/deploy.yaml
+  - backend/service.yaml
+  - front/deploy.yaml
+  - front/service.yaml
+
+images:
+  - name: backend
+    newName: 322824640893.dkr.ecr.us-east-1.amazonaws.com/devops/production/backend
+    newTag: v1.0
+
+  - name: backend
+    newName: 322824640893.dkr.ecr.us-east-1.amazonaws.com/devops/production/frontend
+    newTag: v1.0
